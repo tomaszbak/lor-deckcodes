@@ -93,6 +93,7 @@ private struct Reductor {
 private let bytesInGroup = 5
 private let charactersInGroup = 8
 private let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"
-private enum Base32DecodingError: Error {
+
+public enum Base32DecodingError: Error {
     case invalidInputSize, invalidCharacter
 }
