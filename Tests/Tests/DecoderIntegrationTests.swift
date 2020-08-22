@@ -17,6 +17,20 @@ final class DecoderIntegrationTests: XCTestCase {
         XCTAssertTrue(cards.contains(where: { $0.identifier == jinxId}))
     }
     
+    func testDecoderShouldValidateBilgeWaterDeckCode() throws {
+        // Demacia/Bilgewater
+        let code = "CEBQOAQGBAFQ4HA5FY6QEAQAAEEQGAIAB4QSUAIBAEABUAQBAEADEAICAACQ"
+        let fizzId = 46
+        let cards = try Decoder().decode(code).cards
+        
+        XCTAssertEqual(cards.count, 15)
+        XCTAssertEqual(cards.filter({ $0.numberOfCopies == 2 }).count, 1)
+        XCTAssertEqual(cards.filter({ $0.numberOfCopies == 1 }).count, 2)
+        XCTAssertEqual(cards.filter({ $0.faction == .bilgewater }).count, 7)
+        XCTAssertEqual(cards.filter({ $0.faction == .demacia }).count, 8)
+        XCTAssertTrue(cards.contains(where: { $0.identifier == fizzId}))
+    }
+    
     func testDecoderOnEmptyCodeShouldThrow() {
         XCTAssertThrowsError(try Decoder().decode(""))
     }

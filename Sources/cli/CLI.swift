@@ -16,10 +16,10 @@ struct CLI: ParsableCommand {
                 }
         } catch is Base32DecodingError {
             throw CLIError(description: "Base32 decoding have failed")
-        } catch DecodingError.invalidFormat(let format, let version) {
-            throw CLIError(description: "Deck code with format: \(format) v\(version) is not supported")
+        } catch DecodingError.unsupportedFormat(let header) {
+            throw CLIError(description: "Deck code with format: \(header.format) v\(header.version) is not supported")
         } catch is DecodingError {
-            throw CLIError(description: "Deck code data is corrupted")
+            throw CLIError(description: "Deck code data is corrupted. If you belive the code should work, please create an issue on Github.")
         } catch {
             throw CLIError(description: "Unknown")
         }

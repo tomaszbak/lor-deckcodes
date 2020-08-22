@@ -33,11 +33,13 @@ private struct HeaderStep: Step {
     var context = DecodingContext()
     
     func evaluate(_ value: Int) throws -> Step {
-        let format = (value & 0b11110000) >> 4
-        let version = value & 0b00001111
+        let header = Header(
+            format: (value & 0b11110000) >> 4,
+            version: value & 0b00001111
+        )
         
-        guard format == 1, version == 1 else {
-            throw DecodingError.invalidFormat(Int(format), Int(version))
+        guard header.isSupportedFormat() else {
+            throw DecodingError.unsupportedFormat(header)
         }
 
         return NumberOfSectionsStep(context: context)
@@ -73,7 +75,11 @@ private struct SetStep: Step {
     var context: DecodingContext
     
     mutating func evaluate(_ value: Int) throws -> Step {
-        context.set = Set(rawValue: value)
+        guard let set = Set(rawValue: value) else {
+            throw DecodingError.invalidSet(value)
+        }
+        context.set = set
+        
         return FactionStep(context: context)
     }
 }
@@ -82,7 +88,11 @@ private struct FactionStep: Step {
     var context: DecodingContext
     
     mutating func evaluate(_ value: Int) throws -> Step {
-        context.faction = Faction(rawValue: value)
+        guard let faction = Faction(rawValue: value) else {
+            throw DecodingError.invalidFaction(value)
+        }
+        
+        context.faction = faction
         return CardStep(context: context)
     }
 }
@@ -92,11 +102,11 @@ private struct CardStep: Step {
     
     mutating func evaluate(_ value: Int) throws -> Step {
         guard let faction = context.faction else {
-            throw DecodingError.invalidFaction
+            throw DecodingError.missingFaction
         }
         
         guard let set = context.set else {
-            throw DecodingError.invalidFaction
+            throw DecodingError.missingSet
         }
         
         let card = Card(set: set, faction: faction, identifier: value, numberOfCopies: context.numberOfCards)

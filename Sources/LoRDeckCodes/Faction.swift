@@ -5,6 +5,7 @@ public enum Faction: Int {
     case noxus
     case piltoverAndZaun
     case shadowIsles
+    case bilgewater
 }
 
 extension Faction: CustomStringConvertible {
@@ -16,6 +17,7 @@ extension Faction: CustomStringConvertible {
         case .noxus: return "NX"
         case .piltoverAndZaun: return "PZ"
         case .shadowIsles: return "SI"
+        case .bilgewater: return "BW"
         }
     }
 }

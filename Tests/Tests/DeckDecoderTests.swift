@@ -25,7 +25,7 @@ final class DeckDecoderTests: XCTestCase {
     func testDecoderShouldDecodeOnCard() throws {
         let input = [17, 1, 1, 1, 2, 10]
         let result = try DeckDecoder(input: input).execute()
-        let expected = Card(set: .basic, faction: .ionia, identifier: 10, numberOfCopies: 3)
+        let expected = Card(set: .foundations, faction: .ionia, identifier: 10, numberOfCopies: 3)
         XCTAssertEqual(result.cards, [expected])
     }
     
@@ -33,8 +33,8 @@ final class DeckDecoderTests: XCTestCase {
         let input = [17, 0, 1, 2, 1, 4, 42, 44]
         let result = try DeckDecoder(input: input).execute()
         let expected = [
-            Card(set: .basic, faction: .piltoverAndZaun, identifier: 42, numberOfCopies: 2),
-            Card(set: .basic, faction: .piltoverAndZaun, identifier: 44, numberOfCopies: 2),
+            Card(set: .foundations, faction: .piltoverAndZaun, identifier: 42, numberOfCopies: 2),
+            Card(set: .foundations, faction: .piltoverAndZaun, identifier: 44, numberOfCopies: 2),
         ]
         XCTAssertEqual(result.cards, expected)
     }
