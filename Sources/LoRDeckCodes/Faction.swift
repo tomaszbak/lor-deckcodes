@@ -1,11 +1,12 @@
 public enum Faction: Int {
-    case demacia
-    case freljord
-    case ionia
-    case noxus
-    case piltoverAndZaun
-    case shadowIsles
-    case bilgewater
+    case demacia = 0
+    case freljord = 1
+    case ionia = 2
+    case noxus = 3
+    case piltoverAndZaun = 4
+    case shadowIsles = 5
+    case bilgewater = 6
+    case targon = 9
 }
 
 extension Faction: CustomStringConvertible {
@@ -18,6 +19,7 @@ extension Faction: CustomStringConvertible {
         case .piltoverAndZaun: return "PZ"
         case .shadowIsles: return "SI"
         case .bilgewater: return "BW"
+        case .targon: return "MT"
         }
     }
 }

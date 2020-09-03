@@ -19,7 +19,7 @@ final class DecoderIntegrationTests: XCTestCase {
     
     func testDecoderShouldValidateBilgeWaterDeckCode() throws {
         // Demacia/Bilgewater
-        let code = "CEBQOAQGBAFQ4HA5FY6QEAQAAEEQGAIAB4QSUAIBAEABUAQBAEADEAICAACQ"
+        let code = "CIBQEAQAAEEQGAIAB4QSUBYCAYEAWDQ4DUXD2AIBAEABUAQBAEADEAICAACQ"
         let fizzId = 46
         let cards = try Decoder().decode(code).cards
         
@@ -29,6 +29,20 @@ final class DecoderIntegrationTests: XCTestCase {
         XCTAssertEqual(cards.filter({ $0.faction == .bilgewater }).count, 7)
         XCTAssertEqual(cards.filter({ $0.faction == .demacia }).count, 8)
         XCTAssertTrue(cards.contains(where: { $0.identifier == fizzId}))
+    }
+    
+    func testDecoderShouldValidateTargonDeckCode() throws {
+        // Feljord/Targon
+        let code = "CIBQEAYBAIDAIAIBBQKBKIIGAMEQMFKIKRLFOAQBAMAQIAIDBELQA"
+        let asolId = 87
+        let cards = try Decoder().decode(code).cards
+        
+        XCTAssertEqual(cards.count, 14)
+        XCTAssertEqual(cards.filter({ $0.numberOfCopies == 2 }).count, 2)
+        XCTAssertEqual(cards.filter({ $0.numberOfCopies == 1 }).count, 0)
+        XCTAssertEqual(cards.filter({ $0.faction == .targon }).count, 7)
+        XCTAssertEqual(cards.filter({ $0.faction == .freljord }).count, 7)
+        XCTAssertTrue(cards.contains(where: { $0.identifier == asolId}))
     }
     
     func testDecoderOnEmptyCodeShouldThrow() {
