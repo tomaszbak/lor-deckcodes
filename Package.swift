@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.5
 
 import PackageDescription
 
@@ -7,26 +7,32 @@ let package = Package(
     products: [
         .executable(
             name: "lor-deckcodes",
-            targets: ["cli"]),
+            targets: ["cli"]
+        ),
         .library(
             name: "LoRDeckCodes",
-            targets: ["LoRDeckCodes"]),
+            targets: ["LoRDeckCodes"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", .exact("0.0.4")),
     ],
     targets: [
-        .target(
+        .executableTarget(
             name: "cli",
             dependencies: [
                 "LoRDeckCodes",
                 .product(name: "ArgumentParser", package: "swift-argument-parser")
-            ]),
+            ]
+        ),
         .target(
             name: "LoRDeckCodes",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "Tests",
-            dependencies: ["LoRDeckCodes"]),
-    ]
+            dependencies: ["LoRDeckCodes"]
+        ),
+    ],
+    swiftLanguageVersions: [.v5]
 )
