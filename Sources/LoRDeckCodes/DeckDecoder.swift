@@ -18,8 +18,8 @@ private struct DecodingContext {
     var numberOfCards = 3
     var sectionsLeft = 0
     var cardsLeft = 0
-    var set: Set?
-    var faction: Faction?
+    var set: Card.Set?
+    var faction: Card.Faction?
     
     var cards: [Card] = []
 }
@@ -75,7 +75,7 @@ private struct SetStep: Step {
     var context: DecodingContext
     
     mutating func evaluate(_ value: Int) throws -> Step {
-        guard let set = Set(rawValue: value) else {
+        guard let set = Card.Set(rawValue: value) else {
             throw DecodingError.invalidSet(value)
         }
         context.set = set
@@ -88,7 +88,7 @@ private struct FactionStep: Step {
     var context: DecodingContext
     
     mutating func evaluate(_ value: Int) throws -> Step {
-        guard let faction = Faction(rawValue: value) else {
+        guard let faction = Card.Faction(rawValue: value) else {
             throw DecodingError.invalidFaction(value)
         }
         

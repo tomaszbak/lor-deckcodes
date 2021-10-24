@@ -1,5 +1,7 @@
-public enum Set: Int {
-    case foundations = 1
-    case risingTides = 2
-    case callOfTheMountain = 3
+extension Card {
+    public enum Set: Int {
+        case foundations = 1
+        case risingTides = 2
+        case callOfTheMountain = 3
+    }
 }

@@ -1,15 +1,17 @@
-public enum Faction: Int {
-    case demacia = 0
-    case freljord = 1
-    case ionia = 2
-    case noxus = 3
-    case piltoverAndZaun = 4
-    case shadowIsles = 5
-    case bilgewater = 6
-    case targon = 9
+extension Card {
+    public enum Faction: Int {
+        case demacia = 0
+        case freljord = 1
+        case ionia = 2
+        case noxus = 3
+        case piltoverAndZaun = 4
+        case shadowIsles = 5
+        case bilgewater = 6
+        case targon = 9
+    }
 }
 
-extension Faction: CustomStringConvertible {
+extension Card.Faction: CustomStringConvertible {
     public var description: String {
         switch self {
         case .demacia: return "DE"
