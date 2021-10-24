@@ -9,6 +9,7 @@ extension Card {
         case bilgewater = 6
         case shurima = 7
         case targon = 9
+        case bandleCity = 10
     }
 }
 
@@ -24,6 +25,7 @@ extension Card.Faction: CustomStringConvertible {
         case .bilgewater: return "BW"
         case .shurima: return "SH"
         case .targon: return "MT"
+        case .bandleCity: return "BC"
         }
     }
 }

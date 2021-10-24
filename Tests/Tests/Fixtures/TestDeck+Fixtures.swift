@@ -83,4 +83,22 @@ extension TestDeck {
         "1:04SH128"
         "1:04SH138"
     }
+    
+    static let ziggsAndPoppy = TestDeck {
+        "CEBQQBIKA4UTCSLAOSRQDJQBAMAQGAQMFABAEAYDAQAACAIFBJCQ"
+        "3:05BC007"
+        "3:05BC041"
+        "3:05BC049"
+        "3:05BC073"
+        "3:05BC096"
+        "3:05BC116"
+        "3:05BC163"
+        "3:05BC166"
+        "3:01NX002"
+        "3:01NX012"
+        "3:01NX040"
+        "3:02NX003"
+        "3:02NX004"
+        "1:05BC069"
+    }
 }

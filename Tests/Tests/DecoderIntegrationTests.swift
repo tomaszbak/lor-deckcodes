@@ -26,4 +26,8 @@ final class DecoderIntegrationTests: XCTestCase {
     func testDecoderShouldValidateShurimaDeckCode() throws {
         Assert(Decoder(), with: .akshanAndSivir)
     }
+    
+    func testDecoderShouldValidateBandleCityDeckCode() throws {
+        Assert(Decoder(), with: .ziggsAndPoppy)
+    }
 }
