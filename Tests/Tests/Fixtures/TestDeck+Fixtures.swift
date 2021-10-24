@@ -63,4 +63,24 @@ extension TestDeck {
         "2:03FR004"
         "2:03MT023"
     }
+    
+    static let akshanAndSivir = TestDeck {
+        "CEBQEAIABEOQOBAHBUKDMN25M6BACAIDAAHAGAIBAANAEBAAAIBQCAQAAEAQEBAHQAAYUAI"
+        "3:01DE009"
+        "3:01DE029"
+        "3:04SH013"
+        "3:04SH020"
+        "3:04SH054"
+        "3:04SH055"
+        "3:04SH093"
+        "3:04SH103"
+        "3:04SH130"
+        "3:03DE014"
+        "2:01DE026"
+        "2:04DE002"
+        "2:04DE003"
+        "2:02DE001"
+        "1:04SH128"
+        "1:04SH138"
+    }
 }

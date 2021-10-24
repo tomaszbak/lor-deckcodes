@@ -1,7 +1,7 @@
 public struct Header {
     
     // Compatibility list available at https://github.com/RiotGames/LoRDeckCodes#process
-    static private let maxSupported = [Header(format: 1, version: 2)]
+    static private let maxSupported = [Header(format: 1, version: 3)]
     
     public var format: Int
     public var version: Int

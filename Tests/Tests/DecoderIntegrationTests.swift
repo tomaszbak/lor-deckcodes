@@ -22,4 +22,8 @@ final class DecoderIntegrationTests: XCTestCase {
     func testDecoderShouldValidateTargonDeckCode() throws {
         Assert(Decoder(), with: .trundleAndAurelionSol)
     }
+    
+    func testDecoderShouldValidateShurimaDeckCode() throws {
+        Assert(Decoder(), with: .akshanAndSivir)
+    }
 }

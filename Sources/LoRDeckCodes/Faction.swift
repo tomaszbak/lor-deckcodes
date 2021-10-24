@@ -7,6 +7,7 @@ extension Card {
         case piltoverAndZaun = 4
         case shadowIsles = 5
         case bilgewater = 6
+        case shurima = 7
         case targon = 9
     }
 }
@@ -21,6 +22,7 @@ extension Card.Faction: CustomStringConvertible {
         case .piltoverAndZaun: return "PZ"
         case .shadowIsles: return "SI"
         case .bilgewater: return "BW"
+        case .shurima: return "SH"
         case .targon: return "MT"
         }
     }
