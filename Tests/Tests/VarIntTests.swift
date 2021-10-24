@@ -12,6 +12,10 @@ final class VarIntTests: XCTestCase {
     }
     
     func testDecodeVarIntWhenTwoBytesForOneIntShouldReturnExpected() throws {
-        XCTAssertEqual(decodeVarInt(input: Data([170, 43])), [5419])
+        XCTAssertEqual(decodeVarInt(input: Data([138, 1])), [138])
+    }
+    
+    func testDecodeVarIntWhenThreeBytesForOneIntShouldReturnExpected() throws {
+        XCTAssertEqual(decodeVarInt(input: Data([128, 128, 1])), [16384])
     }
 }
