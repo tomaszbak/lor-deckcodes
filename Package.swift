@@ -31,7 +31,10 @@ let package = Package(
         ),
         .testTarget(
             name: "Tests",
-            dependencies: ["LoRDeckCodes"]
+            dependencies: ["LoRDeckCodes"],
+            resources: [
+                .copy("Resources")
+            ]
         ),
     ],
     swiftLanguageVersions: [.v5]
