@@ -16,6 +16,10 @@ public struct Card: Equatable {
             identifier
         )
     }
+    
+    public static func ==(rhs: Card, lhs:Card) -> Bool {
+        return rhs.code == lhs.code
+    }
 }
 
 extension Card: CustomStringConvertible {

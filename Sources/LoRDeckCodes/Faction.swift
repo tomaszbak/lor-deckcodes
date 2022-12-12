@@ -10,6 +10,7 @@ extension Card {
         case shurima = 7
         case targon = 9
         case bandleCity = 10
+        case runeterra = 12
     }
 }
 
@@ -26,6 +27,7 @@ extension Card.Faction: CustomStringConvertible {
         case .shurima: return "SH"
         case .targon: return "MT"
         case .bandleCity: return "BC"
+        case .runeterra: return "RU"
         }
     }
 }
