@@ -2,7 +2,7 @@ public struct Deck {
     public var cards: [Card]
 }
 
-public struct Card: Equatable {
+public struct Card: Hashable {
     public var set: Set
     public var faction: Faction
     public var identifier: Int

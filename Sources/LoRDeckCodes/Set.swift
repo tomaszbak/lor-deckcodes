@@ -5,5 +5,6 @@ extension Card {
         case callOfTheMountain = 3
         case empiresOfTheAscended = 4
         case beyondTheBandlewood = 5
+        case worldwalker = 6
     }
 }

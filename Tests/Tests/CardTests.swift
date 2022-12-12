@@ -4,13 +4,13 @@ import Foundation
 
 final class CardTests: XCTestCase {
     func testDescriptionShouldHaveExpectedFormat() {
-        let hecarim = Card(
-            set: .foundations,
-            faction: .shadowIsles,
-            identifier: 42,
-            numberOfCopies: 2
+        let xolaani = Card(
+            set: .worldwalker,
+            faction: .targon,
+            identifier: 35,
+            numberOfCopies: 1
         )
         
-        XCTAssertEqual(hecarim.description, "2:01SI042")
+        XCTAssertEqual(xolaani.description, "1:06MT035")
     }
 }
